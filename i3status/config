@@ -40,7 +40,7 @@ ethernet _first_ {
 }
 
 battery 0 {
-        format = "%status %remaining (%consumption)"
+        format = "%status %percentage (%consumption)"
 	status_chr = ""
 	status_bat = ""
 	status_full = ""

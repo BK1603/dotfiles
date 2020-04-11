@@ -47,9 +47,6 @@ nnoremap L $
 nnoremap H ^
 nnoremap <leader><space> :execute "nohlsearch"<cr>
 nnoremap <leader>W :match<cr>
-nnoremap <leader>j :silent execute "cnext"<cr>
-nnoremap <leader>k :silent execute "cprevious"<cr>
-nnoremap <leader>q :silent execute "cclose"<cr>
 
 " some typos
 iabbrev adn and
@@ -57,6 +54,8 @@ iabbrev itn int
 iabbrev flaot float
 iabbrev calss class
 iabbrev shreaynsh shreyansh
+iabbrev peice piece
+iabbrev freind friend
 
 " some abbreviations
 iabbrev ssig <cr>Shreyansh Chouhan<cr>chouhan.shreyansh2702@gmail.com

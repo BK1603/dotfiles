@@ -10,6 +10,7 @@ Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
+Plug 'BK1603/nvim-autoread'
 call plug#end()
 
 " My preferences
@@ -41,7 +42,6 @@ nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>tv :tab new ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader><space> :silent execute "nohlsearch"<cr>
-nnoremap <BS> :bprev<cr>
 nnoremap <tab> :tabn<cr>
 nnoremap <S-tab> :tabp<cr>
 
@@ -101,6 +101,11 @@ let g:startify_bookmarks = [ {'n': '~/GSOC/neovim'} ]
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
+
+if !(&filetype == "txt")
+  highlight WhiteSpaces ctermbg=green guibg=#55aa55
+  match WhiteSpaces /\s\+$/
+endif
 
 augroup mygroup
   autocmd!

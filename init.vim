@@ -1,7 +1,6 @@
 " For vim plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'easymotion/vim-easymotion'
 Plug 'chrisbra/Recover.vim'
 Plug 'vimwiki/vimwiki', {'branch' : 'dev'}
 Plug 'mhinz/vim-grepper'
@@ -10,6 +9,10 @@ Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
+Plug 'norcalli/typeracer.nvim'
+Plug '~/Work/nvim-scratchpad'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " My preferences
@@ -41,8 +44,6 @@ nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>tv :tab new ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader><space> :silent execute "nohlsearch"<cr>
-nnoremap <tab> :tabn<cr>
-nnoremap <S-tab> :tabp<cr>
 
 " some typos
 iabbrev adn and

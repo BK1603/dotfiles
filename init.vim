@@ -13,6 +13,7 @@ Plug 'norcalli/typeracer.nvim'
 Plug '~/Work/nvim-scratchpad'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'dracula/vim',{'as': 'dracula'}
 call plug#end()
 
 " My preferences
@@ -74,7 +75,7 @@ let g:startify_bookmarks = [ {'n': '~/GSOC/neovim'} ]
 
 " lightline
 let g:lightline = {
-  \ 'colorscheme' : 'solarized'
+  \ 'colorscheme' : 'dracula'
   \ }
 set noshowmode
 

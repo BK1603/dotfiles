@@ -1,10 +1,8 @@
 " For vim plug
 call plug#begin('~/.config/nvim/plugged')
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chrisbra/Recover.vim'
 Plug 'vimwiki/vimwiki', {'branch' : 'dev'}
 Plug 'mhinz/vim-grepper'
-Plug 'takac/vim-hardtime'
 Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-unimpaired'
@@ -14,6 +12,11 @@ Plug '~/Work/nvim-scratchpad'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim',{'as': 'dracula'}
+Plug 'CraneStation/cranelift.vim', {'branch' : 'main'}
+Plug 'tpope/vim-surround',
+Plug 'vim-conf-live/pres.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " My preferences
@@ -31,10 +34,7 @@ set nocompatible
 filetype plugin on
 syntax on
 
-nmap <M-g> :Grepper<CR>
-nmap <M-j> :silent execute "cnext"<cr>
-nmap <M-k> :silent execute "cprevious"<cr>
-nmap <M-c> :silent execute "cclose"<cr>
+nmap <leader>gg :Grepper<CR>
 inoremap jk <esc>
 noremap <Up> <nop>
 noremap <Left> <nop>
@@ -45,6 +45,7 @@ nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>tv :tab new ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader><space> :silent execute "nohlsearch"<cr>
+nnoremap ts :%s/\s\+$//e<cr>
 
 " some typos
 iabbrev adn and
@@ -78,6 +79,11 @@ let g:lightline = {
   \ 'colorscheme' : 'dracula'
   \ }
 set noshowmode
+
+" folds
+set foldmethod=indent
+set foldnestmax=10
+set foldminlines=4
 
 if !(&filetype == "txt")
   highlight WhiteSpaces ctermbg=green guibg=#55aa55

@@ -13,7 +13,10 @@ Plug 'tpope/vim-surround',
 Plug 'vim-conf-live/pres.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'LnL7/vim-nix'
+Plug 'cplaursen/vim-isabelle'
+Plug 'jpalardy/vim-slime'
 call plug#end()
 
 " My preferences
@@ -39,6 +42,7 @@ nnoremap <leader>tv :tab new ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader><space> :silent execute "nohlsearch"<cr>
 nnoremap ts :%s/\s\+$//e<cr>
+nnoremap <leader>sn :vsplit ~/Documents/todo.md<cr>
 
 " some typos
 iabbrev adn and
@@ -53,7 +57,7 @@ iabbrev freind friend
 iabbrev ssig <cr>Shreyansh Chouhan<cr>chouhan.shreyansh2702@gmail.com
 
 " colorscheme
-colorscheme nord
+colorscheme dracula
 
 " mucomplete
 set completeopt+=menuone
@@ -66,7 +70,7 @@ let g:startify_bookmarks = [ {'n': '~/GSOC/neovim'} ]
 
 " lightline
 let g:lightline = {
-  \ 'colorscheme' : 'nord'
+  \ 'colorscheme' : 'dracula'
   \ }
 set noshowmode
 
@@ -79,6 +83,8 @@ if !(&filetype == "txt")
   highlight WhiteSpaces ctermbg=green guibg=#55aa55
   match WhiteSpaces /\s\+$/
 endif
+
+let g:slime_target = "tmux"
 
 augroup mygroup
   autocmd!

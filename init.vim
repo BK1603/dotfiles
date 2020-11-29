@@ -6,7 +6,6 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
 Plug 'norcalli/typeracer.nvim'
-Plug '~/Work/nvim-scratchpad'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround',
@@ -17,6 +16,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'LnL7/vim-nix'
 Plug 'cplaursen/vim-isabelle'
 Plug 'jpalardy/vim-slime'
+Plug 'arcticicestudio/nord'
 call plug#end()
 
 " My preferences
@@ -83,8 +83,6 @@ if !(&filetype == "txt")
   highlight WhiteSpaces ctermbg=green guibg=#55aa55
   match WhiteSpaces /\s\+$/
 endif
-
-let g:slime_target = "tmux"
 
 augroup mygroup
   autocmd!

@@ -1,36 +1,37 @@
 " For vim plug
 call plug#begin('~/.config/nvim/plugged')
-Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
-Plug 'lifepillar/vim-mucomplete'
-Plug 'tpope/vim-unimpaired'
-Plug 'itchyny/lightline.vim'
-Plug 'norcalli/typeracer.nvim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround',
-Plug 'vim-conf-live/pres.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'LnL7/vim-nix'
-Plug 'cplaursen/vim-isabelle'
-Plug 'jpalardy/vim-slime'
-Plug 'arcticicestudio/nord'
+Plug 'andreasvc/vim-256noir'
+Plug 'hkupty/iron.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'vim-airline/vim-airline'
+Plug 'tonadev/vim-airline-256noir'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
+
+" Colorscheme
+colorscheme 256_noir
 
 " My preferences
 set number
 set relativenumber
 set autoread
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set list
 set listchars=tab:>-
+set fcnotify=autoread,watcher
+set foldcolumn=auto
+set noshowmode
+set cc=81
 
-nmap <leader>gg :Grepper<CR>
 inoremap jk <esc>
 noremap <Up> <nop>
 noremap <Left> <nop>
@@ -43,6 +44,14 @@ nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader><space> :silent execute "nohlsearch"<cr>
 nnoremap ts :%s/\s\+$//e<cr>
 nnoremap <leader>sn :vsplit ~/Documents/todo.md<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>gg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <C-i> :tabp<cr>
+
+highlight Overlength ctermbg=red guibg=#55aa55
+match Overlength /\%>80v.\+/
 
 " some typos
 iabbrev adn and
@@ -56,9 +65,6 @@ iabbrev freind friend
 " some abbreviations
 iabbrev ssig <cr>Shreyansh Chouhan<cr>chouhan.shreyansh2702@gmail.com
 
-" colorscheme
-colorscheme dracula
-
 " mucomplete
 set completeopt+=menuone
 set completeopt+=noselect
@@ -68,11 +74,8 @@ let g:mucomplete#enable_auto_at_startup = 1
 " startify bookmarks
 let g:startify_bookmarks = [ {'n': '~/GSOC/neovim'} ]
 
-" lightline
-let g:lightline = {
-  \ 'colorscheme' : 'dracula'
-  \ }
-set noshowmode
+" airline
+let g:airline_theme='256noir'
 
 " folds
 set foldmethod=indent
@@ -85,8 +88,6 @@ if !(&filetype == "txt")
 endif
 
 augroup mygroup
-  autocmd!
-  autocmd FileType c,cpp iabbrev <buffer> iff if () {<cr>}jkkf(a
   " autocmd for removing trailing whitespaces
   autocmd FileType c,cpp autocmd BufWritePre <buffer> :%s/\s\+$//e
   " autocmd for comments
